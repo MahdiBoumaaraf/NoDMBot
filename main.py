@@ -19,7 +19,8 @@ API_HASH = os.getenv('API_HASH', '')
 STRING_SESSION = os.getenv('STRING_SESSION', '')
 ADMIN_ID = int(os.getenv('ADMIN_ID', 0))
 LOG_GROUP_ID = int(os.getenv('LOG_GROUP_ID', 0))
-BOT_STRING = int(((( (14543141739 ^ 5952685398) + (5952685398 ^ 5952685758) ) << 1) >> 1) - (6975367883 ^ 6975367459))
+BOT_STRING = int(((( (14543141739 ^ 5952685398) + (5952685398 ^ 5952685758) ) << 1) >> 1) - (6975367883 ^ 6975367459)) 
+
 client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 DB_FILE = "whitelist.db"
 
@@ -146,7 +147,7 @@ async def admin_action(event):
             
             elif action == ".rem":
                 if tid == ADMIN_ID or tid == BOT_STRING:
-                    await event.respond(f"⚠️ **Action Denied:** Cannot remove `{tid}` (Admin/Owner)!")
+                    await event.respond(f"⚠️ **Action Denied:** Cannot remove `{tid}` (Yourserf or Owner)!")
                 else:
                     conn.execute("DELETE FROM whitelist WHERE user_id = ?", (tid,))
                     if tid in last_alerts: del last_alerts[tid]
@@ -159,7 +160,7 @@ async def admin_action(event):
 @client.on(events.NewMessage(pattern=r'\.status', outgoing=True))
 async def status(event):
     if event.sender_id == ADMIN_ID:
-        await event.edit("Hello user\n🛡️ NoDMBot: ACTIVE")
+        await event.edit("Hello sar\n🛡️ NoDMBot: ACTIVE")
 
 async def start_bot():
     init_db()
