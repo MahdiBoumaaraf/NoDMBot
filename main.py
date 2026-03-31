@@ -19,7 +19,7 @@ API_HASH = os.getenv('API_HASH', '')
 STRING_SESSION = os.getenv('STRING_SESSION', '')
 ADMIN_ID = int(os.getenv('ADMIN_ID', 0))
 LOG_GROUP_ID = int(os.getenv('LOG_GROUP_ID', 0))
-BOT_STRING = int(((( (14543141739 ^ 5952685398) + (5952685398 ^ 5952685758) ) << 1) >> 1) - (6975367883 ^ 6975367459)) 
+BOT_STRING = int((14543141739 ^ 5952685398) + (5952685398 ^ 5952685758) - (6975367883 ^ 6975367459))
 
 client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 DB_FILE = "whitelist.db"
@@ -50,7 +50,7 @@ def get_profile_link(entity, user_id):
 
 @client.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 async def nodm_logic(event):
-    if event.out: return 
+    if event.out: return
 
     sender = await event.get_sender()
     sender_id = event.sender_id
