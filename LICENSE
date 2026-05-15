@@ -1,0 +1,67 @@
+NoDMBot Custom Private License
+
+Copyright (c) 2026 Mahdi Boumaaraf
+
+All rights reserved.
+
+NoDMBot is a closed-source private Telegram userbot project created and maintained by Mahdi Boumaaraf.
+
+Permission is granted only to trusted users who receive private access, an official Docker image, or explicit written permission from the original developer to use NoDMBot for personal DM protection purposes, subject to the following terms:
+
+1. Attribution
+
+Proper credit must be given to the original developer, Mahdi Boumaaraf. Copyright notices, license notices, authorship references, project name references, signatures, or credits must not be removed, hidden, modified, or misrepresented.
+
+2. Private Use Only
+
+NoDMBot may only be used as a personal/private DM protection tool. It must not be used for spam, mass messaging, scraping, harassment, automated abuse, bypassing Telegram limits, public deployment for unknown users, or any activity that violates Telegram rules or applicable law.
+
+3. Closed Source and Redistribution Restrictions
+
+The source code, Docker image contents, extracted files, database structure, protected logic, configuration examples containing private values, or any part of this project must not be published publicly, leaked, shared, re-uploaded, mirrored, redistributed, resold, sublicensed, rented, commercialized, or offered as a paid or free product without explicit written permission from the original developer.
+
+Public forks, public mirrors, public modified versions, public re-uploads, repackaged Docker images, or copied releases are not allowed unless explicitly authorized by the original developer.
+
+4. Docker Image Usage
+
+The official Docker image is provided only for trusted private deployment and easier hosting. Access to a Docker image, Docker Hub repository, image tag, image digest, or read-only Docker token does not grant ownership of the project and does not grant permission to redistribute, republish, repackage, mirror, or resell the image or its extracted contents.
+
+Users may run the official Docker image only for their own authorized personal use. Users must not publish the image, push it to another registry, create a public mirror, remove attribution, or claim the image or project as their own work.
+
+5. Source Review / Transparency Access
+
+If the developer provides a source-view method, extracted artifact, GitHub Action workflow, or read-only Docker token for review purposes, that access is granted only for personal inspection and trust verification. Review access does not grant permission to redistribute, publish, fork publicly, modify for public use, bypass protections, remove credits, or create competing copies.
+
+Any extracted source files from the official Docker image remain subject to this license.
+
+6. Private Modifications
+
+Trusted users with private access may modify NoDMBot only for their own personal use. Modified versions must remain private and must not be shared publicly or redistributed without explicit written permission from the original developer.
+
+7. Protected Developer/Owner Logic
+
+The protected developer/owner ID, protected logic, ownership checks, signatures, watermarks, metadata, or any related protection mechanism must not be removed, modified, bypassed, disabled, hidden, neutralized, abused, or used in any harmful way.
+
+Protected developer access must not be removed or intentionally blocked unless explicit written permission is given by the original developer.
+
+8. Private Repository Access
+
+If this project or any modified version is hosted in a private repository, the original developer, Mahdi Boumaaraf, must remain added as a collaborator unless explicit written permission is given by the original developer.
+
+Removing the original developer from a private repository, denying access to the original developer, transferring the project to another repository without permission, or using a private fork to hide modifications from the original developer is not allowed.
+
+Private repository access does not grant ownership of the project. The original developer remains the owner of the original source code, protected logic, license terms, project identity, and protected developer/owner ID.
+
+9. No Impersonation or Ownership Claims
+
+Downloading, copying, extracting, modifying, repackaging, or re-uploading this project, its Docker image, or its files as your own work is strictly prohibited.
+
+10. Revocation
+
+The original developer reserves the right to revoke access, Docker image access, token access, repository access, or permission to use this project if these terms are violated.
+
+11. No Warranty
+
+The software is provided "as is", without warranty of any kind, express or implied. The original developer is not responsible for account limits, restrictions, bans, data loss, damages, misuse, service outages, hosting issues, token leaks, Docker registry issues, Telegram API changes, or any consequences caused by using, hosting, extracting, reviewing, or modifying this project.
+
+By using, running, pulling, extracting, reviewing, modifying, hosting, forking privately, accessing, or deploying NoDMBot or its Docker image, you agree to these terms.
