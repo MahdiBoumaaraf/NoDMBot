@@ -25,20 +25,13 @@ If someone needs to use the bot, they must contact the original developer privat
 NoDMBot can be deployed using the official Docker image:
 
 ```text
-mahdibmrf/nodmbot:stable
-```
-
-Versioned image example:
-
-```text
-mahdibmrf/nodmbot:v1.0
+mahdibmrf/nodmbot:x.x
 ```
 
 Docker Hub page:
 
-```md
 [Official Docker Image](https://hub.docker.com/r/mahdibmrf/nodmbot)
-```
+
 
 The image runs `main.py` directly and uses a read-only application directory:
 
@@ -72,46 +65,6 @@ The `/app` directory is read-only inside the container. The `/data` directory is
 
 ---
 
-## 🚀 Run With Docker Locally
-
-Create a `.env` file with the required environment variables, then run:
-
-```bash
-docker run --rm --env-file .env -p 5000:5000 -v nodmbot_data:/data mahdibmrf/nodmbot:stable
-```
-
-Run in background:
-
-```bash
-docker run -d --name nodmbot --env-file .env -p 5000:5000 -v nodmbot_data:/data mahdibmrf/nodmbot:stable
-```
-
-View logs:
-
-```bash
-docker logs -f nodmbot
-```
-
-Stop:
-
-```bash
-docker stop nodmbot
-```
-
-Remove the stopped container:
-
-```bash
-docker rm nodmbot
-```
-
-The named volume keeps the local database persistent:
-
-```text
-nodmbot_data:/data
-```
-
----
-
 ## ☁️ Render Deployment With Docker
 
 In Render:
@@ -125,13 +78,7 @@ New +
 Image URL:
 
 ```text
-mahdibmrf/nodmbot:stable
-```
-
-or:
-
-```text
-mahdibmrf/nodmbot:v1.0
+mahdibmrf/nodmbot:x1x
 ```
 
 If the Docker image is private, add a Docker Hub credential using a **read-only Docker Hub token**.
